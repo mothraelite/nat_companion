@@ -1,0 +1,11 @@
+## Interface: 11200
+## Title: NAT Companion
+## Author: Katjes+Strawie <milaninavid@gmail.com>
+## Version: 0.1d
+## Notes: Making things silky
+## DefaultState: Enabled
+## LoadOnDemand: 0
+## SavedVariablesPerCharacter: NAT_Companion_Settings
+
+nat_companion.xml
+ncompanion_controller.lua

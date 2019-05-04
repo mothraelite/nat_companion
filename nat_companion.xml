@@ -1,0 +1,97 @@
+<Ui xmlns="http://www.blizzard.com/wow/ui/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.blizzard.com/wow/ui/..\..\FrameXML\UI.xsd">
+	<!-- 
+			@Author: Moth/Strawie <milaninavid@gmail.com>
+			Title: Nat_companion
+			Version: 0.1d
+			Description: Displays current players assignments
+			
+	//-->
+	 <Script File="ncompanion_controller.lua" />
+	 <Frame name="NAT_Companion" enableMouse="true" movable="true" frameStrata="MEDIUM">
+			 <Size>
+			   <AbsDimension x="300" y="200" />
+			 </Size>
+			 <Anchors>
+			   <Anchor point="CENTER" />
+			 </Anchors>
+
+			<Scripts>
+				<OnLoad>
+					NCompanion_init();
+					<!--NAT_Companion:Hide();//-->
+				</OnLoad>
+				<OnEvent>
+					NCompanion_handle_events(event);
+				</OnEvent>
+				<OnUpdate>
+					NCompanion_update(arg1);
+				</OnUpdate>
+				
+				<OnDragStart>NAT_Companion:StartMoving();</OnDragStart>
+				<OnDragStop>NAT_Companion:StopMovingOrSizing();</OnDragStop>
+			</Scripts>
+			
+			 <Backdrop bgFile="Interface\DialogFrame\UI-DialogBox-Background"
+				   edgeFile="Interface\DialogFrame\UI-DialogBox-Border" tile="true">
+			   <BackgroundInsets>
+				 <AbsInset left="11" right="12" top="12" bottom="11"/>
+			   </BackgroundInsets>
+			   <TileSize>
+				 <AbsValue val="32"/>
+			   </TileSize>
+			   <EdgeSize>
+				 <AbsValue val="32"/>
+			   </EdgeSize>
+			  
+			 </Backdrop>
+
+			 <Layers>
+				<Layer level="ARTWORK">
+					<FontString inherits="GameFontNormal" name="NAT_Companion_assignment_label" text="Assignments">
+						<Anchors>
+							<Anchor point="TOP">
+								<Offset>
+									<AbsDimension x="0" y="-10" />
+								</Offset>
+							</Anchor>
+						</Anchors>
+					</FontString>
+				</Layer>
+				
+				<Layer level="OVERLAY">
+					
+				</Layer>
+				
+				<Layer>
+				</Layer>
+			</Layers>
+
+			<!-- Tangible Layers //-->
+			 <Frames>
+				<!--NAT_Companion Primary view//-->
+				<Frame name='ncompanion_assign_view' frameStrata="MEDIUM">
+					
+				</Frame>
+			   
+			   <!-- Close button //-->
+			    <Button inherits="OptionsButtonTemplate" name="NCompanionCloseButton" text="X" frameStrata="HIGH">
+					<Size><AbsDimension x="14" y="14"/></Size>
+					<Anchors>
+						<Anchor relativeTo="NAT" point="TOPRIGHT">
+							<Offset>
+								<AbsDimension x="-10" y="-12" />
+							</Offset>
+						</Anchor>
+						
+					</Anchors>
+					<Scripts>
+						<OnClick>NAT:Hide();</OnClick>
+					</Scripts>
+				</Button>
+				<!-- Close button //-->
+			</Frames>
+			<!-- BUTTONS N SHIT //-->
+			
+	 </Frame>
+</Ui>
+
